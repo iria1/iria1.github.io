@@ -3,32 +3,112 @@
 
 <head>
     <title>iria1's website</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="icon" href="./yuuka.jpg">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 
 <body>
-    <h1>Hello there</h1>
-    <p>If you are seeing this, this site is in construction</p>
-    <p>There is nothing interesting to see here, so go away</p>
-
-    <label>Get a corpo buzzword:</label>
-    <button onclick="Foo()">Get</button>
-    <h4 id="buzzword"></h4>
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 border">
+                <h1>Hello there</h1>
+            </div>
+            <div class="col-sm-6 col-md-4 border text-bg-primary">
+                <p class="text-center">If you are seeing this, this site is in construction</p>
+            </div>
+            <div class="col-sm-6 col-md-4 border text-bg-success">
+                <p class="text-end">There is nothing interesting to see here, so go away</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col border">
+                <label>Get a corpo buzzword:</label>
+                <button type="button" class="btn btn-secondary" onclick="Foo()">Get</button>
+                <h4 id="buzzword"></h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 border">
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Head 1</th>
+                            <th>Head 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Body 1</td>
+                            <td>Body 2</td>
+                        </tr>
+                        <tr>
+                            <td>Body 3</td>
+                            <td>Body 4</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Foot 1</td>
+                            <td>Foot 2</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="col-sm-6 border">
+                <table class="table table-striped table-hover table-dark">
+                    <thead>
+                        <tr>
+                            <th>Head 1</th>
+                            <th>Head 2</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-light">
+                        <tr>
+                            <td>Body 1</td>
+                            <td>Body 2</td>
+                        </tr>
+                        <tr>
+                            <td>Body 3</td>
+                            <td>Body 4</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Foot 1</td>
+                            <td>Foot 2</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div id="alert" class="alert alert-success alert-dismissible fade show" style="display:none">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                Success!
+            </div>
+        </div>
+    </div>
 </body>
 
 <!-- jQuery -->
 <script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
 <script>
     $(document).ready(function () {
-        
+
     });
 
-    function Foo(){
+    function Foo() {
         $.ajax({
             type: "GET",
             url: "https://corporatebs-generator.sameerkumar.website/",
             success: function (json) {
                 $("#buzzword").html(json.phrase);
+                $("#alert").attr('style', 'display:block');
             }
         });
     }
