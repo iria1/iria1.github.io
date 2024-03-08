@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title>iria1's website</title>
@@ -13,17 +13,20 @@
 </head>
 
 <body>
-    <div style="padding-bottom:56px">
-        <nav class="navbar fixed-top navbar-expand-sm bg-dark navbar-dark">
-            <div class="container-fluid">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <div class="navbar-text">iria1.github.io</div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
+    <nav class="navbar sticky-top navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="navbar-brand" href="#">
+                        <img src="./yuuka.jpg" alt="Avatar Logo" style="width:40px;" class="rounded-pill">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <div class="navbar-text">iria1.github.io</div>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
     <div class="container pt-5">
         <div class="row">
@@ -98,11 +101,101 @@
                 </table>
             </div>
         </div>
+        <div class="row border" style="height:200px">
+            <div id="sample_carousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#sample_carousel" data-bs-slide-to="0"
+                        class="active"></button>
+                    <button type="button" data-bs-target="#sample_carousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#sample_carousel" data-bs-slide-to="2"></button>
+                </div>
+
+                <div class="carousel-inner h-100">
+                    <div class="carousel-item text-bg-secondary h-100 active">
+                        <div class="carousel-caption">
+                            carousel 1
+                        </div>
+                    </div>
+                    <div class="carousel-item text-bg-secondary h-100">
+                        <div class="carousel-caption">
+                            carousel 2
+                        </div>
+                    </div>
+                    <div class="carousel-item text-bg-secondary h-100">
+                        <div class="carousel-caption">
+                            carousel 3
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#sample_carousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#sample_carousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
         <div class="row">
             <div id="alert" class="alert alert-success alert-dismissible fade show" style="display:none">
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                 Success!
             </div>
+        </div>
+        <div class="row border" style="height:1000px">
+            <div>
+                <button type="button" class="btn btn-primary float-end" data-bs-toggle="offcanvas" data-bs-target="#sample_offcanvas">
+                    Call Offcanvas
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <div style="padding-top:112px">
+        <nav class="navbar fixed-bottom navbar-expand-sm bg-dark navbar-dark">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <div class="navbar-text" data-bs-toggle="tooltip" title="Contact Me">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#contact_me_modal">
+                                Made by Irfandi Riawan
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="modal fade" id="contact_me_modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Contact Me</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    It's not ready yet!
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" id="sample_offcanvas">
+        <div class="offcanvas-header">
+            <h1 class="offcanvas-title">Offcanvas</h1>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p>This offcanvas does nothing.</p>
         </div>
     </div>
 </body>
@@ -115,7 +208,11 @@
     crossorigin="anonymous"></script>
 <script>
     $(document).ready(function () {
-
+        // Initialize tooltips
+        var tooltipTriggerList = [].slice.call($('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
     });
 
     function Foo() {
