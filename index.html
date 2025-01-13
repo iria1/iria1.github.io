@@ -86,6 +86,9 @@
         $.ajax({
             type: "GET",
             url: "https://kit-primary-whippet.ngrok-free.app/api/Check/CheckEndpointExists",
+            headers: new Headers({
+                "ngrok-skip-browser-warning": "1",
+            }),
             success: function (json) {
                 $("#endpoint_check").html("the endpoint is accessible");
             },
