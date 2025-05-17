@@ -16,6 +16,9 @@
 
     <h4 id="endpoint_check"></h4>
 
+    <h4>Your Location</h1>
+    <p id="location">Fetching location...</p>
+
     <div id="footer"></div>
 </body>
 
@@ -29,12 +32,14 @@
 <script>
     $(document).ready(function () {
         // Initialize tooltips
-        var tooltipTriggerList = [].slice.call($('[data-bs-toggle="tooltip"]'))
-        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
-        })
+        // var tooltipTriggerList = [].slice.call($('[data-bs-toggle="tooltip"]'))
+        // var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        //     return new bootstrap.Tooltip(tooltipTriggerEl)
+        // })
 
         Foo();
+
+        Bar();
     });
 
     function Foo() {
@@ -52,6 +57,37 @@
             }
         });
     }
+
+    function Bar(){
+        const locationElement = document.getElementById("location");
+
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const { latitude, longitude } = position.coords;
+
+                // Step 2: Reverse geocoding via Nominatim
+                fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    const displayName = data.address.city || data.address.town || data.address.state || data.address.country;
+                    locationElement.textContent = `You are in: ${displayName}`;
+                })
+                .catch((error) => {
+                    locationElement.textContent = "Error fetching region name.";
+                    console.error(error);
+                });
+            },
+            (error) => {
+                locationElement.textContent = `Geolocation error: ${error.message}`;
+            }
+            );
+        } else {
+            locationElement.textContent = "Geolocation is not supported by this browser.";
+        }
+    }
+    
+
 </script>
 
 </html>
