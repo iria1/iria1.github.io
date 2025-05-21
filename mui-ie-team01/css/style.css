@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+    color: black;
+}
+
+.container {
+    display: flex;
+}
+
+.left-panel {
+    width: 300px;
+    padding-right: 20px;
+}
+
+select,
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#use-location-btn {
+    background-color: #cce6ff;
+    color: #003366;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#use-location-btn:hover {
+    background-color: #99ccff;
+}
+
+.section {
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.section-header {
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    color: black;
+}
+
+.right-panel {
+    flex-grow: 1;
+}
+
+.aqi-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.aqi-left {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.aqi-center {
+    text-align: left;
+    flex-grow: 1;
+    margin-top: 10px;
+}
+
+.aqi-center .status {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.aqi-center .timestamp {
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.aqi-right {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.aqi-right span {
+    font-size: 14px;
+    display: block;
+    color: black;
+}
+
+.recommendation-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.recommendation-box {
+    flex: 1;
+    min-width: 30%;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.recommendation-box img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.recommendation-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: black;
+}
+
+.recommendation-caption {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+}

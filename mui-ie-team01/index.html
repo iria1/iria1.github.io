@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Real-Time AQI</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <label><strong>Select Location:</strong></label>
+      <select id="state-select">
+        <option value="">Select State</option>
+      </select>
+      <select id="city-select" disabled>
+        <option value="">Select City</option>
+      </select>
+      <button id="use-location-btn">Use Current Location</button>
+    </div>
+
+    <div class="right-panel">
+      <div class="section" id="aqi-section">
+        <div class="section-header">Real-Time Air Quality Index (AQI)</div>
+        <div class="aqi-left" id="location-name"></div>
+        <div class="error" id="error-msg" style="display:none;">LOCATION ACCESS DENIED</div>
+        <div id="aqi-content" class="aqi-content"></div>
+      </div>
+
+      <div class="section" id="recommendation-section">
+        <div class="section-header">Recommendations</div>
+        <div id="recommendation-content" class="recommendation-content"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
